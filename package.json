@@ -1,0 +1,36 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "description": "Pervasive data intelligence in Real Time",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Luis Mendes",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "chart.js": "^2.7.1",
+    "connect-flash": "*",
+    "cookie-parser": "^1.4.1",
+    "cors": "^2.8.4",
+    "express": "*",
+    "express-handlebars": "*",
+    "express-messages": "*",
+    "express-session": "*",
+    "express-validator": "*",
+    "faker": "^4.1.0",
+    "formidable": "^1.2.1",
+    "lodash": "^4.17.5",
+    "mongodb": "*",
+    "mongolab-data-api": "^1.1.6",
+    "mongoose": "*",
+    "olap-cube-js": "^0.4.0",
+    "passport": "*",
+    "passport-http": "*",
+    "passport-local": "*",
+    "tiny-olap": "^0.2.3"
+  }
+}

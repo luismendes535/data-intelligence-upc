@@ -1,0 +1,76 @@
+<div class="container-fluid" data-element="chartWidget" data-selected-value="{{data.selected_dataset}}">
+  <!-- heading -->
+  <div class="container">
+    <div class="row">
+    <div class="col-xs-3">
+      <h3 class="headline">Dataset</h2>
+      <select class="btn btn-default" name="{{data.collection}}" name="collection" data-element="collection">
+        <option disabled selected>Select your collection</option>
+          {{data}}
+          {{#data.collections}}
+          {{#ifCond this 'system.indexes' 'users' }}
+          {{else}}
+            <option value="{{this}}">{{this}}</option>
+          {{/ifCond}} 
+          {{/data.collections}}       
+      </select>
+    </div>
+    <div class="col-xs-9">
+      {{#if data.keys }}
+      <div class="form-inline">
+        <div class="form-group" >
+          <label for="dimension">Available dimensions</label>
+          <select class="form-control" id="dimension" data-element="dimension">
+            <option disabled selected>Select your dimension(s)</option>
+              {{#data.keys}}
+              {{#ifCond this '_id' '__v' }}
+              {{else}}
+                <option value="{{this}}">{{this}}</option>
+                {{/ifCond}}
+              {{/data.keys}}
+          </select>
+            <button type="button" id="add-dimension" class="btn btn-default btn-sm glyphicon glyphicon-plus"/>
+            <button type="button" id="remove-dimension" class="btn btn-default btn-sm ">-</button>
+          <!-- Phase 2 at Universty of Minho: Make these buttons work -->
+        </div>
+        <div class="form-group">
+          <label for="aggregation">Aggregation</label>
+          <select class="form-control" id="aggregation" data-element="aggregation">
+            <option value="" disabled selected>Select your aggregation</option>
+              <option value="sum">Sum</option>
+              <option value="avg">Average</option>
+              <option value="count">Count</option>
+              <option value="max">Max</option>
+              <option value="min">Min</option>
+          </select>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="formula">Formula</label>
+          <select class="form-control" id="formula" data-element="formula">
+            <option value="" disabled selected>Select your formula</option>
+              {{#data.keys}}
+              {{#ifCond this '_id' '__v' }}
+              {{else}}
+                <option value="{{this}}">{{this}}</option>
+              {{/ifCond}}
+              {{/data.keys}}
+          </select>
+        </div>
+        </div>        
+      </div>
+    {{else}}
+  {{/if}}
+    </div>
+  </div>
+</div>
+<!-- content --> 
+<div class="row">
+  <canvas id="chart"></canvas>
+</div>
+<style>
+  .form-inline .form-group {
+    padding: 5px 2px 5px 20px;
+  }
+</style>
+<script src="/js/src/Dashboard.js"></script>
